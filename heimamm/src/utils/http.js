@@ -51,6 +51,7 @@ export const httpGet = async (url, payload, type = "API1") => {
     });
 
     const result = response.data;
+    console.log(result);
     return result;
   } catch (err) {
     throw new Error(err);
@@ -70,11 +71,8 @@ export const httpGet = async (url, payload, type = "API1") => {
 export const httpPost = async (url, payload, type = "API1") => {
   try {
     serverURL = getURL(type);
-
     featch.defaults.baseURL = serverURL;
-
     const response = await featch.post(`${url}`, payload);
-
     const result = response.data;
     return result;
   } catch (err) {
